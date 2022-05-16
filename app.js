@@ -1,17 +1,18 @@
 const express = require('express')
 const app = express()
 const Port = 3000
-const exphbs = require('express-handlebars')
-const { mainModule } = require('process')
+const exhbs = require('express-handlebars')
+
 
 //app.use
-app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
-app.use('view engine', 'hbs')
+app.engine('.hbs', exhbs.engine({ defaultLayout: 'main', extname: '.hbs' }))
+app.set('view engine', '.hbs')
+
 
 //Routers
 
 app.get('/', (req, res) => {
-  res.send('Hello world!!!')
+  res.render('index')
 })
 
 //listener
