@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
-const users = [
+const User = require('../user')
+const usersData = [
   {
     firstName: 'Tony',
     email: 'tony@stark.com',
@@ -26,4 +27,18 @@ const users = [
     password: 'password'
   }
 ]
+
+mongoose.connect(process.env.MONGODB_URI)
+const db = mongoose.connection
+db.on('error', () => {
+  console.log('mongodb error')
+})
+db.once('open', () => {
+  console.log('mongodb connected')
+  User.create(usersData).then(() => {
+    console.log('done')
+    db.close()
+  }).catch(error => console.log(error))
+
+})
 
