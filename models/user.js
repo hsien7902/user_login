@@ -11,7 +11,7 @@ const userSchema = new schema({
   },
   password: {
     type: String,
-    requred: true,
+    required: true,
   }
 })
 

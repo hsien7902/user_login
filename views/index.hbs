@@ -1,18 +1,20 @@
 <div class="container">
-    <form action="/" method="post">
-      <h2 class="my-3 text-center">ACCOUNT LOGIN</h2>
-      <div class="row justify-content-center">
-        <div class="input w-75 m-2">
-          <input type=" text" name="website" class="form-control " placeholder="E-mail" aria-label="website">
-        </div>
-        <div class="input w-75 m-2">
-          <input type=" text" name="website" class="form-control " placeholder="Password" aria-label="website">
-        </div>
-        <div class="sign-in text-center">
-          <button class="btn btn-secondary p-3 m-1" type="submit" id="shorten-button">
-            Sign in
-          </button>
-        </div>
+
+  <form action="/users" method="post">
+    <h2 class="my-3 text-center">ACCOUNT LOGIN</h2>
+    {{!-- 登入頁面 --}}
+    <div class="row justify-content-center">
+      <div class="input w-75 m-2">
+        <input type="email" name="email" class="form-control" placeholder="E-mail" aria-label="email">
       </div>
-    </form>
+      <div class="input w-75 m-2">
+        <input type="password" name="password" class="form-control" placeholder="Password" aria-label="password">
+      </div>
+      
+      <div class="login text-center">
+        <button class="btn btn-secondary p-3 m-1" type="submit" id="login-button">
+          Sign in
+        </button>
+      </div>
+  </form>
 </div>

@@ -35,10 +35,11 @@ db.on('error', () => {
 })
 db.once('open', () => {
   console.log('mongodb connected')
-  User.create(usersData).then(() => {
-    console.log('done')
-    db.close()
-  }).catch(error => console.log(error))
+  User.create(usersData)
+    .then(() => {
+      console.log('done')
+      db.close()
+    }).catch(error => console.log(error))
 
 })
 
