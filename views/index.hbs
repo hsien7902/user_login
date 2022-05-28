@@ -1,20 +1,36 @@
 <div class="container">
 
+  {{#if result}}
+  {{!-- 一般頁面+成功頁面 --}}
+  <div class=" text-center mt-3">
+    <h1>Welcome Back! {{result}}!</h1>
+    <a href="/" class="backToIndex">
+      <button class="btn btn-secondary p-3 m-1" type="submit" id="login-button">
+        Go Back
+      </button>
+    </a>
+  </div>
+
+  {{else}}
+  {{!-- 失敗+重新登入頁面 --}}
   <form action="/users" method="post">
-    <h2 class="my-3 text-center">ACCOUNT LOGIN</h2>
-    {{!-- 登入頁面 --}}
     <div class="row justify-content-center">
       <div class="input w-75 m-2">
-        <input type="email" name="email" class="form-control" placeholder="E-mail" aria-label="email">
+        <input type="email" name="email" class="form-control" placeholder="E-mail" {{#if email}}value="{{email}}"
+          {{/if}} aria-label="email">
       </div>
       <div class="input w-75 m-2">
         <input type="password" name="password" class="form-control" placeholder="Password" aria-label="password">
+        {{#if email}}<small style="color: red; font-size: x-small;">請確認輸入的 E-mail 或 password 是否正確！</small>{{/if}}
       </div>
-      
       <div class="login text-center">
         <button class="btn btn-secondary p-3 m-1" type="submit" id="login-button">
           Sign in
         </button>
       </div>
+    </div>
   </form>
+  {{/if}}
+
+
 </div>

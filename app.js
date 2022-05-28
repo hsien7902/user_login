@@ -37,15 +37,15 @@ app.post('/users', (req, res) => {
   const { email, password } = req.body
   if (!(email.trim() && password.trim())) {
     return res.redirect('/')
-  }
+  } //處理空格/空值錯誤
   console.log(`${email}/${password}`)
   return User.findOne({ email: email, password: password })
     .lean()
-    .then(data => data ? data : res.render('result', { email })
+    .then(data => data ? data : res.render('index', { email })
     )
     .then(data => {
       console.log(data)
-      res.render('result', { result: data.firstName })
+      res.render('index', { result: data.firstName })
     })
     .catch(error => console.log(error))
 })
